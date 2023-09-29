@@ -8,7 +8,7 @@ from api.serializers import BlogSerializer
 class BlogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
-    permission_classes = permissions.AllowAny
+    permission_classes = (permissions.AllowAny, )
     lookup_field = 'slug'
 
     def get_queryset(self):

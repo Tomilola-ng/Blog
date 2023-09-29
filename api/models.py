@@ -1,6 +1,7 @@
 from django.db import models
+from django.utils import timezone
 from django.contrib.auth import get_user_model
-# 
+
 from api.options import category
 # Get generic User
 User = get_user_model()
@@ -16,9 +17,14 @@ class Blog(models.Model):
     category = models.CharField(choices = category, max_length=25)
 
     content = models.TextField()
+    img_url = models.CharField(max_length = 225, 
+                               default = 'istockphoto.com/beards.jpg')
 
-    created_at = models.DateTimeField(auto_created = True)
-    updated_at = models.DateTimeField(auto_now_add = True)
+    created_at = models.DateTimeField(default = timezone.now)
+    updated_at = models.DateTimeField(auto_now = True)
 
     def __str__(self) -> str:
         return f'{self.slug}'
+    
+    class Meta:
+        ordering = ['-created_at']
