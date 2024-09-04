@@ -1,6 +1,4 @@
-# Blog API
-
-## Hello There 
+# Django Blog Rest API 🚨
 
 I created this Blog API using `DRF`, `Python`, `SQlite` etc
 
